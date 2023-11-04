@@ -1,0 +1,12 @@
+# Set text files to use LF line endings on all platforms
+* text=auto
+
+# Don't perform any line ending conversion on these files
+*.jpg binary
+*.png binary
+
+
+
+
+
+# to avoide these  git config --global core.autocrlf true and  git config --global core.autocrlf input
