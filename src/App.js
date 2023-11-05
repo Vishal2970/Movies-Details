@@ -3,7 +3,8 @@ import Home from './Components/Home';
 import {Routes, Route} from "react-router-dom";
 import SingleMovie from './Components/SingleMovie';
 import Error from './Components/Error';
-
+// import '\src\App.css'
+import './App.css'
 
 
 const App = () => {
