@@ -1,17 +1,13 @@
-import { useGlobalContext } from './context'
+import Movies from './Movies';
+import Search from './Search';
 
 const Home = () => {
-    // const name=useContext(AppContext);
-    // for global
-    const name=useGlobalContext();
   return (
     <> 
     <div>
-        My Home Page
+       <Search/>
+       <Movies/>
     </div>
-    <p>
-        {name}
-    </p>
     </>
   )
 }
