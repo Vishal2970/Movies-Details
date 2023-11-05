@@ -36,7 +36,10 @@ const AppProvider = ({children}) => {
     }
 
     useEffect(()=>{
-        getMovie(`${API_URL}&s=${query}`);
+        let timer=setTimeout(()=>{
+            getMovie(`${API_URL}&s=${query}`);
+        },700)
+        return()=>clearTimeout(timer);
     },[query]);
 
 
