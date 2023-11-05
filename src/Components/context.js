@@ -3,7 +3,7 @@ import React, { useContext, useEffect , useState } from "react";
 
 // const API_URL='http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=love';
 
-const API_URL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=love`;
+const API_URL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
 
 
 const AppContext=React.createContext();
@@ -13,6 +13,7 @@ const AppProvider = ({children}) => {
     const [isLoading, setIsLoading]=useState(true);
     const [isError, setIsError] = useState({show:"false", msg:""});
     const [movie, setMovie]=useState([])
+    const [query,setQuery]= useState("love");
 
     const getMovie = async (url) =>{
         try{
@@ -35,11 +36,11 @@ const AppProvider = ({children}) => {
     }
 
     useEffect(()=>{
-        getMovie(API_URL);
-    },[]);
+        getMovie(`${API_URL}&s=${query}`);
+    },[query]);
 
 
-    return <AppContext.Provider value={{isLoading,isError,movie}}>{children}</AppContext.Provider>
+    return <AppContext.Provider value={{isLoading,isError,movie,query,setQuery}}>{children}</AppContext.Provider>
 }
 
 
